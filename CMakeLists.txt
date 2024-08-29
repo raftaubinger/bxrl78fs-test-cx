@@ -14,5 +14,5 @@ target_link_options(tutorial PRIVATE
   --config_def _FAR_HEAP_SIZE=0
   --config_def _HUGE_HEAP_SIZE=0
   --config_def _STACK_SIZE=128
-  --config_def -D_NEAR_CONST_LOCATION_SIZE=0xCF00
+  --config_def _NEAR_CONST_LOCATION_SIZE=0xC000
 )
