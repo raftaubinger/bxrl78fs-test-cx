@@ -1,0 +1,43 @@
+name: BXARM on Linux (CLOUD)
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+
+env:
+  CMAKE_MAKE_PROGRAM: ninja
+    
+jobs:
+  cloud-build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/fae-emea/bxrl78fs:5.10.5
+        
+    steps:      
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Setup cloud license
+        run: |
+             ${{ secret.BXRL78_CLOUD }}
+
+      - name: CMake - Configure
+        run: cmake -S. -Bbuild -GNinja -DCMAKE_MAKE_PROGRAM=$CMAKE_MAKE_PROGRAM -DCMAKE_BUILD_TYPE=Debug
+        
+      - name: CMake - Build
+        run: cmake --build build -j `nproc` --verbose
+
+      - name: Upload ELF             
+        uses: actions/upload-artifact@v4
+        with:
+          name: myELF
+          path: build/*.elf
+          if-no-files-found: error
+
+      - name: Upload binary             
+        uses: actions/upload-artifact@v4
+        with:
+          name: myHEX
+          path: build/*.hex
+          if-no-files-found: error             
