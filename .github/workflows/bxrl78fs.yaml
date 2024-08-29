@@ -5,9 +5,6 @@ on:
     paths-ignore:
       - 'README.md'
 
-env:
-  CMAKE_MAKE_PROGRAM: ninja
-    
 jobs:
   cloud-build:
     runs-on: ubuntu-latest
@@ -22,7 +19,7 @@ jobs:
         run: ${{ secrets.BXRL78FS_CLOUD }}
 
       - name: CMake - Configure
-        run: cmake -S. -Bbuild -GNinja -DCMAKE_MAKE_PROGRAM=$CMAKE_MAKE_PROGRAM -DCMAKE_BUILD_TYPE=Debug
+        run: cmake -S. -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug
         
       - name: CMake - Build
         run: cmake --build build -j `nproc` --verbose
