@@ -27,13 +27,13 @@ jobs:
       - name: Upload ELF             
         uses: actions/upload-artifact@v4
         with:
-          name: myELF
+          name: tutorial.elf
           path: build/*.elf
           if-no-files-found: error
 
       - name: Upload binary             
         uses: actions/upload-artifact@v4
         with:
-          name: myHEX
+          name: tutorial.hex
           path: build/*.hex
-          if-no-files-found: error             
+          if-no-files-found: error

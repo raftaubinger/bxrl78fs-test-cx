@@ -23,3 +23,11 @@ target_link_options(tutorial PRIVATE
   --config ${TOOLKIT_DIR}/config/lnkrl78_s3.icf
   --debug_lib
 )
+
+# Convert the ELF output to .hex
+function(iar_elf_tool_hex TARGET)
+  add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND ${CMAKE_IAR_ELFTOOL} --silent --ihex $<TARGET_FILE:${TARGET}> $<IF:$<BOOL:$<TARGET_PROPERTY:${TARGET},OUTPUT_NAME>>,$<TARGET_PROPERTY:${TARGET},OUTPUT_NAME>,$<TARGET_PROPERTY:${TARGET},NAME>>.hex)
+endfunction()
+
+iar_elf_tool_hex(tutorial)
+
