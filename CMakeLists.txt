@@ -2,7 +2,7 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # Get the TOOLKIT_DIR
-get_filename_component(BIN_DIR ${CMAKE_C_COMPILER} DIRECTORY)
+get_filename_component(BIN_DIR $ENV{CC} DIRECTORY)
 get_filename_component(TOOLKIT_DIR ${BIN_DIR} PATH)
 
 cmake_minimum_required(VERSION 3.30)
