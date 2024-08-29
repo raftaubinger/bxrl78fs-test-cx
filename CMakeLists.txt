@@ -17,4 +17,6 @@ target_link_options(tutorial PRIVATE
   --config_def _STACK_SIZE=128
   --config_def _NEAR_CONST_LOCATION_START=0x2000
   --config_def _NEAR_CONST_LOCATION_SIZE=0xC000"
+  --config ${TOOLKIT_DIR}/config/lnkrl78_s3.icf
+  --debug_lib
 )
