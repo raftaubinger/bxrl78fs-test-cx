@@ -10,9 +10,10 @@ add_executable(tutorial)
 target_sources(tutorial PRIVATE tutorial.c)
 
 target_link_options(tutorial PRIVATE
-  SHELL:--config_def _NEAR_HEAP_SIZE=0
-  SHELL:--config_def _FAR_HEAP_SIZE=0
-  SHELL:--config_def _HUGE_HEAP_SIZE=0
-  SHELL:--config_def _STACK_SIZE=128
-  SHELL:--config_def _NEAR_CONST_LOCATION_SIZE=0xC000
+  "SHELL:
+  --config_def _NEAR_HEAP_SIZE=0
+  --config_def _FAR_HEAP_SIZE=0
+  --config_def _HUGE_HEAP_SIZE=0
+  --config_def _STACK_SIZE=128
+  --config_def _NEAR_CONST_LOCATION_SIZE=0xC000"
 )
