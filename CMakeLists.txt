@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
-# Set the TOOLKIT_DIR
+# Get the TOOLKIT_DIR
 get_filename_component(BIN_DIR ${CMAKE_C_COMPILER} DIRECTORY)
 get_filename_component(TOOLKIT_DIR ${BIN_DIR} PATH)
 
