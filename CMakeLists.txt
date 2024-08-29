@@ -9,7 +9,7 @@ add_executable(tutorial)
 
 target_sources(tutorial PRIVATE tutorial.c)
 
-target_link_options(tutorial PRIVATE
+target_link_options(tutorial PRIVATE SHELL:
   --config_def _NEAR_HEAP_SIZE=0
   --config_def _FAR_HEAP_SIZE=0
   --config_def _HUGE_HEAP_SIZE=0
