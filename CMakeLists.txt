@@ -10,9 +10,9 @@ add_executable(tutorial)
 target_sources(tutorial PRIVATE tutorial.c)
 
 target_link_options(tutorial PRIVATE
-  -D_NEAR_HEAP_SIZE=0
-  -D_FAR_HEAP_SIZE=0
-  -D_HUGE_HEAP_SIZE=0
-  -D_STACK_SIZE=128
-  -D_NEAR_CONST_LOCATION_SIZE=0xCF00
+  --config_def _NEAR_HEAP_SIZE=0
+  --config_def _FAR_HEAP_SIZE=0
+  --config_def _HUGE_HEAP_SIZE=0
+  --config_def _STACK_SIZE=128
+  --config_def -D_NEAR_CONST_LOCATION_SIZE=0xCF00
 )
