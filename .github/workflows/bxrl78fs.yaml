@@ -20,7 +20,7 @@ jobs:
 
       - name: Setup cloud license
         run: |
-             ${{ secret.BXRL78_CLOUD }}
+             ${{ secret.BXRL78FS_CLOUD }}
 
       - name: CMake - Configure
         run: cmake -S. -Bbuild -GNinja -DCMAKE_MAKE_PROGRAM=$CMAKE_MAKE_PROGRAM -DCMAKE_BUILD_TYPE=Debug
