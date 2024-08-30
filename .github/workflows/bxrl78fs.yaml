@@ -1,9 +1,7 @@
 name: BXARM on Linux (CLOUD)
 
 on:
-  push:
-    paths-ignore:
-      - 'README.md'
+  pull_request:
 
 jobs:
   cloud-build:
