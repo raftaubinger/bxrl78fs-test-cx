@@ -1,4 +1,4 @@
-name: BXARM on Linux (CLOUD)
+name: BXRL78FS510 CI
 
 on:
   pull_request:
