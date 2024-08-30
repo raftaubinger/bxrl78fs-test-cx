@@ -14,11 +14,6 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: Initial setup
-        env: 
-          test: ${{ secrets.TEST }}
-        run: echo "$env:test"
-
       - name: CMake - Configure
         run: cmake -S. -Bbuild -GNinja
         
